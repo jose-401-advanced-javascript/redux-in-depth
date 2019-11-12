@@ -2,14 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
-import { addSelection } from '../actions/moodActions';
+import { addSelection, resetGame } from '../actions/moodActions';
 import { actions, getFace } from '../selectors/moodSelectors';
 
 // eslint-disable-next-line react/prop-types
-const Moods = ({ actions, emoji, handleSelection }) => (
+const Moods = ({ actions, emoji, handleSelection, resetGame }) => (
   <>
     <Controls actions={actions} handleSelection={handleSelection} />
     <Face emoji={emoji} />
+    <button onClick={resetGame}>Reset</button>
   </>
 );
 
@@ -21,6 +22,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   handleSelection(name) {
     dispatch(addSelection(name));
+  },
+  resetGame() {
+    dispatch(resetGame());
   }
 });
 
