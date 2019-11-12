@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
+import { addSelection } from '../actions/moodActions';
 
 export const isTired = state => state.coffees < 1 && state.naps < 1;
 export const isHyper = state => state.coffees > 3;
@@ -41,9 +42,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleSelection(name) {
-    dispatch({
-      type: name
-    });
+    dispatch(addSelection(name));
   }
 });
 
