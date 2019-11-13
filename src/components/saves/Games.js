@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Game from './Game';
 
 const Games = ({ saves }) => {
-  const games = saves.map(game => {
+  const games = saves.map((game, i) => {
     return (
-      <li key={game.name}>
+      <li key={i}>
         <Game {...game} />
       </li>
     );
